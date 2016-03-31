@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+
+	body {
+		margin-left: 250px;
+
+	}
+	h2 {
+		margin-left: 300px;
+		font-family: Arial;
+		color: blue;
+		padding-bottom: 60px;
+	}
+
+	table, td, th {    
+    	border: 1px solid #ddd;
+    	text-align: left;
+		}
+
+	table {
+    	border-collapse: collapse;
+    	width: 70%;
+	}
+
+	th, td {
+    	padding: 15px;
+    	font-family:Arial;
+    
+
+    }
+
+    
+
+    input[type='text'] {
+			font-family: Arial;
+			width: 400px;
+			height: 30px;
+			font-size: 19px;
+		}
+
+	input[type='date'] {
+			font-family: Arial;
+			width: 400px;
+			height: 30px;
+			font-size: 19px;
+		}
+
+	input[type='number'] {
+			font-family: Arial;
+			width: 400px;
+			height: 30px;
+			font-size: 19px;
+		}
+
+	input[type='submit'] {
+			font-family: Arial;
+			height:50px;
+			font-size: 17px;
+			font-weight: bolder;
+			width: 100px;
+			margin-left: 300px;
+			
+
+
+		}
+
+    .jobHeaders {
+    	font-family: Arial;
+    	background-color: #00CC33;
+    	color: white;
+    	font-size: 18px;
+    	font-weight: bolder;
+    	text-align: center;
+
+    }
+
+    .values {
+    	text-align: center;
+    }
+
+    tr:hover{background-color:#f5f5f5}
+    tr:nth-child(even){background-color: #f2f2f2}
+
+
+	</style>
+</head>
+<body>
+
+	<h2>Payment details</h2>
+
+	<form method='post'>
+		<table>
+			<tr>
+				<td> Week commencing</td>
+				<td><center><input type='date' name='date' value='{{date}}'></center></td>
+			</tr>
+			<tr>
+				<td>Expected payment</td>
+				<td><center><input type='number' name='payment' value='{{payment}}' min='0'></center></td>
+			</tr>
+			<tr>
+				<td>Payment received</td>
+				<td><center><input type='number' name='received' value='{{received}}' min='0'></center></td>
+			</tr>
+			<tr>
+				<td>Date payment was received</td>
+				<td><center><input type='date' name='received_date' value='{{received_date}}'></center></td>
+			</tr>
+			<tr>
+				<td>Day payment was received</td>
+				<td><center><input type='text' name='day_payment_rec' value='{{day_payment_rec}}'></center></td>
+			</tr>
+				
+			
+		</table>
+		<br>
+		<input type='submit' value='save'>
+	<br><br>
+</body>
+</html>

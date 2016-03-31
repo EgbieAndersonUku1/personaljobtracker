@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Page not Found</title>
+	<style type="text/css">
+
+	   img {
+	   	margin-left: 380px;
+	   	margin-top: 120px;
+	   }
+
+
+    .login {
+    	position: absolute;
+    	top: 10px;
+    	right: 10px;
+    	font-family: arial;
+    	text-decoration: none;
+    }
+
+
+	h2 {
+		text-align: center;
+		font-family: Arial;
+		color: blue;
+		padding-top: 30px;
+	}
+
+	a {
+    	text-decoration: none;
+   
+    }
+	</style>
+
+
+
+
+</head>
+
+<body>
+
+	 <h2>{{msg}}</h2>
+
+	<div class='login'>
+		{% if user %}
+		   <div class='login-text'>
+		      Welcome you are logged in as {{user}}<a href="/logout"> (logout) </a> | <a href="/records"> My job timetable </a> | <a href="/newWeek"> New week entry </a>
+		   </div>
+		   
+		{%else%}
+			<a href="/login">login</a> | <a href="signUp"></a> | <a href="/homepage">home page </a>
+		{%endif%}
+		
+	</div>
+     <img src="../images/error.jpg">
+</body>
+</html>

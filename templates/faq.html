@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>FAQ (Frequently asked questions)</title>
+	<style type="text/css">
+
+	 
+
+	h1 {
+		text-align: center;
+		font-family: Arial;
+		font-size: 70px;
+		color: red;
+	}
+
+	dt {
+		font-family: Arial;
+		font-size: 20px;
+		color: blue;
+	}
+
+	dd {
+		font-family: Arial;
+		font-size: 18px;
+	}
+
+	body {
+		margin-right: 100px;
+		margin-left: 30px;
+		background: rgb(255, 255, 204);
+	}
+
+	footer {
+		text-align: center;
+	}
+
+	.signup {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		font-family: arial;
+		text-decoration: none;
+	   }
+
+	 a {
+	 	text-decoration: none;
+	 }
+</style>	
+</head>
+
+<body> 
+
+       <div class='signup'>
+			{% if user %}
+			      Welcome you are logged in as {{user}}<span class='name'><a href="/logout"> (logout) </a></span> |
+			      <a href="/records"> My job timetable </a> | <a href="/newWeek"> New week entry </a>		   
+			{%else%}
+				<a href="/login">login</a> | <a href="/signup">SignUp</a> 
+			{%endif%}
+		</div>
+ 
+	<h1>FAQ </h1>
+		<dl>
+
+			<br>
+				<dt> What is job tracker and what can I use it for?</dt>
+				<dd> 		
+					<br>	
+					Job tracker is a timetable that enables you to keep track of the number of hours you have worked, as well as the various job attributes such as job location, job description, start and finish times. The program also calculates the amout of pay for a given day and total payment for a given week based on the number of hours your have worked. 
+					<br>
+					In short it is a great way to track the history of any days you have worked
+				</dd>
+				<br>
+
+
+			<dt> What does week commencing mean on the weekly job sheet and how do I use it. </dt>
+				<dd>
+					<br>
+					The week commencing is the start of the week usually a Monday. In order to use the job timetable
+					for the week enter the job week date commencing for that week and then fill in the details for that week.
+					<br>
+					<br>
+					For example if you working 5 days for the week commencing on the 5 January 2016. You would enter in the job form <em>5/01/2016 </em> in <b>the week commencing </b> for each of the days you were working e.g.<em> Monday,Tuesday, Wednesday, etc. </em> This would then of course be followed by the job description.
+					
+					
+				</dd>
+				<br><br>
+				<dt> How do I find out my payments records for that week or for a certain month?</dt>
+
+				<dd>
+					<br>
+						In order to find out your payment records enter the start of the week date in question.
+						<br>
+						To find out about a certain month period enter the start date and the ending date.
+				<dd>
+
+				<br>
+				<dt>What if I work twice on the same day I cannot seem to enter multiply entries for the same day without overwriting the previous entry? </dt>
+				<br>
+
+				<dd>
+					Unfortunately you cannot enter multiply entries for the same day without overwriting the 
+					previous entry. 
+					<br>
+					<br>
+					For example if you worked <em> 7.30 am to 1pm on a Tuesday </em> and on that following day you worked 
+					<em>2 pm to 10 pm </em> due to way the software is implemented it would only keep the last 
+					entry entered which would be the 2 pm to 10pm entry as the <em>07:30-13:00</em> would be overwritten.
+
+					<br>
+					<br>
+
+					In that case you can use the add payment to add any additional payments for that day.
+
+				</dd>
+				<br>
+				<br>
+				<dt> On chrome I can use a dropped down menu to add dates but not on firefox</dt>
+				<br>
+				<dd>
+					Yes due to way chrome is implemented there is a drop box that enables you to add dates
+					but not in firefox. To add dates in firefox you need to add them as <em>dd/mm/yyyy</em>
+ 				</dd>
+
+
+			
+		</dl>
+		<footer>2016 web technologies </footer>
+		<br>
+	
+</body>
+</html>

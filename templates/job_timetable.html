@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+
+	body {
+		margin-left: 90px;
+
+	}
+	h2 {
+		text-align: center;
+		font-family: Arial;
+		color: blue;
+		padding-bottom: 8px;
+		padding-top: 30px;
+	}
+
+	table, td, th {    
+    	border: 1px solid #ddd;
+    	text-align: left;
+		}
+
+	table {
+    	border-collapse: collapse;
+    	width: 90%;
+	}
+
+	th, td {
+    	padding: 15px;
+    	font-family:Arial;
+    	text-align: center;
+
+    
+
+    }
+
+    .jobHeaders {
+    	font-family: Arial;
+    	background-color: #00CC33;
+    	color: white;
+    	font-size: 18px;
+    	font-weight: bolder;
+    	text-align: center;
+
+    }
+
+    .values {
+    	text-align: center;
+    }
+
+    .money{
+    	font-family: Arial;
+    	font-size: 19px;
+    	text-align: center;
+    }
+
+    .total{
+    	font-family: Arial;
+    	font-size: 22px;
+    	text-align: center;
+    	color: blue;
+    }
+    .login {
+    	position: absolute;
+    	top: 10px;
+    	right: 10px;
+    	font-family: arial;
+    	text-decoration: none;
+    }
+
+    tr:hover{background-color:#f5f5f5}
+    tr:nth-child(even){background-color: #f2f2f2}
+
+    a {
+    	text-decoration: none;
+    	hover
+    }
+
+    .login-text {
+    	hover:{color: blue}
+    }
+
+    footer {
+    	font-size: 17px;
+    	font-family: Arial;
+    	padding-top: 20px;
+    	text-align: center;
+    }
+
+    
+    tr:hover{background-color:#f5f5f5}
+    tr:nth-child(even){background-color: #f2f2f2}
+
+
+
+
+	</style>
+</head>
+<body>
+
+	<h2>Job timetable for the start of the week commencing on the {{date}} </h2>
+
+	<div class='login'>
+		{% if user %}
+		   <div class='login-text'>
+		      Welcome you are logged in as {{user}}<span class='name'><a href="/logout"> (logout) </a></span> |
+		      <a href="/newWeek"> New week entry </a> | <a href="/records"> My job timetable </a>
+		   </div>
+		   
+		{%else%}
+			<a href="/login">login</a> | <a href="signUp"></a> | <a href="/homepage">home page </a>
+		{%endif%}
+	</div>
+	<table>
+
+		
+		<tr>
+			<td class='jobHeaders'>Days working</td>
+			<td class='jobHeaders'>Job title</td>
+			<td class='jobHeaders'>Job description</td>
+			<td class='jobHeaders'>Job location</td>
+			<td class='jobHeaders'>Start time</td>
+			<td class='jobHeaders'>Finish time</td>
+			<td class='jobHeaders'>Hourly rate</td>
+			<td class='jobHeaders'>Total hours worked</td>
+			<td class='jobHeaders'>Expected daily payment</td>
+			<td class='jobHeaders'>Additional daily payment</td>
+		</tr>
+
+		{% for day in days %}
+			<tr>
+			<td>{{day}}</td>
+			<td>{{job_details[day]['Job_details']['Job_title'].title()}}</td>
+			<td>{{job_details[day]['Job_details']['Job_desc'].title()}}</td>
+			<td>{{job_details[day]['Job_details']['location'].title()}}</td>
+			<td class='values'>{{job_details[day]['Job_details']['start_time']}}</td>
+			<td class='values'>{{job_details[day]['Job_details']['finish_time']}}</td>
+			<td class='values'>{{job_details[day]['Job_details']['hourly_rate']}}</td>
+			<td class='values'>{{job_details[day]['Job_details']['total_hours']}}</td>
+			<td class='values'>£{{job_details[day]['Job_details']['weekly_payment']}}</td>
+			<td class='values'>£{{job_details[day]['Job_details']['additional_payment']}}</td>
+			</tr>
+			
+		{% endfor %}
+
+		
+	</table>
+
+	<br>
+	<table>
+		<tr>
+			<td><center><span class='money'>The total hours worked for week commencing on the {{date}} is <span class='total'>{{total_hours}} hours </span></span></center></td>
+			<td><center><span class='money'>The total weekly payment for week commencing on the {{date}} is <span class='total'>£{{total}} </span></span></center></td>
+		</tr>
+	</table>
+	<br>
+
+	<table class="money">
+		<tr>
+		
+		<td><center>The total weekly payment include any additional payment is <span class='total'>£{{additional_payment}}</span> </center></td>
+	</tr>
+	</table>
+
+	<footer> This entry was added on the {{time}} by {{user}} </footer>
+			
+			
+</body>
+</html>

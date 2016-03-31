@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Sign Up page</title>
+
+	<style type="text/css">
+
+		body {
+			width: 900px;
+			margin: 0 auto;
+		}
+
+		.login {
+			font-style: bolder;
+			font-family: Arial;
+			font-size: 19px;
+		}
+
+		input[type="text"] {
+			width: 500px;
+			height: 30px;
+			font-family: Arial;
+			font-size: 16px;
+		}
+
+		input[type="password"] {
+			width: 500px;
+			height: 30px;
+			font-family: Arial;
+			font-size: 16px;
+		}
+
+		input[type="submit"] {
+			height:40px;
+			text-align: center;
+			font-weight: bolder;
+			margin-left: 140px;
+		}
+
+		.error {
+			color: red;
+		}
+
+		.image {
+			text-align: center
+		}
+
+		h1 {
+			padding-top: 2px;
+			padding-bottom: 10px;
+			color: blue;
+			padding-left: 200px;
+		}
+
+		.msg {
+			font-family: Arial;
+			font-size: 16px;
+			color: green;
+			font-weight: bolder;
+		}
+
+		.login-text {
+		    	position: absolute;
+		    	top: 10px;
+		    	right: 10px;
+		    	font-family: arial;
+		    	text-decoration: none;
+		    }
+	    a {
+	    	text-decoration: none;
+	    }
+
+	    .title {
+	    	color: red;
+	    	font-size: 80px;
+	    }
+	</style>
+
+</head>
+
+<body>
+
+	<h1>SignUp page for <span class='title'> JobTracker </span></h1>
+
+	
+    <div class='login-text'>
+   	      <a href="/login">login</a> | <a href="/faq">FAQ</a>
+	</div>
+	<br>
+	<div class='msg'>
+		Sign up to use the full benefits of JobTracker such as being able to keep track of job activities and payments
+	</div>
+	<br>
+	<div class='image'>
+			<img src='../images/jobs.jpg' heigh='230' width='240' alt='image here'>
+		</div>
+	
+	<br>
+	<form method='post'>
+
+		<table>
+			<tr>
+				<td class='login'> Name </td>
+				<td><input type="text" name="name" value="{{name}}"></td>
+				<td class='error'>{{name_error}}</td>
+			</tr>
+			<tr>
+				<td class='login'> Password </td>
+				<td><input type="password" name="password" value="{{password}}"></td>
+				<td class='error'>{{passwd_error}}</td>
+			</tr>
+
+			<tr>
+				<td class='login'> Verify password </td>
+				<td><input type="password" name="verify" value="{{verify}}"></td>
+				<td class='error'>{{verify_error}}</td>
+			</tr>
+
+			<tr>
+				<td class='login'> Email (Optional) </td>
+				<td><input type="text" name="email" value="{{email}}"></td>
+				<td class='error'>{{email_error}}</td>
+			</tr>
+
+		</table>
+		<br>
+		<div class='error'>{{msg}}</div>
+		<input type='submit' value='Register'>
+		<br>
+		
+		
+		
+	</form>
+
+</body>
+
+
+</html>

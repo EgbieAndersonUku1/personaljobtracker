@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+	.info {
+		margin-right: 600px;
+	}
+	body {
+		margin-left: 150px;
+
+	}
+	h1 {
+		margin-left: 300px;
+		font-family: Arial;
+		color: blue;
+		padding-bottom: 50px;
+		padding-top: 30px;
+	}
+
+	table, td, th {    
+    	border: 1px solid #ddd;
+    	text-align: left;
+		}
+
+	table {
+    	
+    	width: 80%;
+	}
+
+	th, td {
+    	padding: 15px;
+    	font-family:Arial;
+    	font-size: 19px;
+    
+
+    }
+
+    
+
+    input[type='text'] {
+			font-family: Arial;
+			width: 400px;
+			height: 30px;
+			font-size: 19px;
+		}
+
+	input[type='date'] {
+			font-family: Arial;
+			width: 400px;
+			height: 30px;
+			font-size: 19px;
+		}
+
+	input[type='number'] {
+			font-family: Arial;
+			width: 400px;
+			height: 30px;
+			font-size: 19px;
+		}
+
+	input[type='submit'] {
+			font-family: Arial;
+			height:50px;
+			font-size: 17px;
+			font-weight: bolder;
+			width: 120px;
+			margin-left: 360px;
+			
+
+
+		}
+
+    .jobHeaders {
+    	font-family: Arial;
+    	background-color: #00CC33;
+    	color: white;
+    	font-size: 18px;
+    	font-weight: bolder;
+    	text-align: center;
+
+    }
+
+
+    .login {
+    	position: absolute;
+    	top: 10px;
+    	right: 10px;
+    	font-family: arial;
+    	text-decoration: none;
+    }
+
+
+    .values {
+    	text-align: center;
+    }
+
+    tr:hover{background-color:#f5f5f5}
+    tr:nth-child(even){background-color: #f2f2f2}
+
+
+    .msg {
+    	font-family: Arial;
+    	font-weight: bolder;
+    	font-size: 18px;
+    	padding-bottom: 40px;
+    	font-style: italic;
+    	color:green;
+    }
+
+    .info {
+    	font-size: 19px;
+    	text-align: center;
+    }
+
+    a {
+    	text-decoration: none;
+    	hover
+    }
+
+    .name {
+    	color: green;
+    	hover:{color:blue;};
+    }
+	</style>
+</head>
+<body>
+
+	<h1>History</h1>
+
+	
+	<div class='login'>
+		{% if user %}
+		   <div class='login-text'>
+		      Welcome you are logged in as {{user}}<span class='name'><a href="/logout"> (logout) </a></span> |
+		      <a href="/newWeek"> New week entry </a> | <a href="/records"> My job timetable </a> | <a href="/faq">FAQ</a>
+		   </div>
+		   
+		{%else%}
+			<a href="/login">login</a> | <a href="signUp">SignUp</a> | <a href="/homepage">Home page </a>
+		{%endif%}
+		
+	</div>
+	<form method='post'>
+
+		<div class='msg'>Enter the week commencing to retreive that weeks particular records</div>
+		<br>
+		<table>
+			<tr>
+				<td>Week Commencing</td>
+				<td><center><input type='date' name='week_date' value='{{week_date}}'></center></td>
+			</tr>
+			
+		</table>
+		<br>
+		<div class='msg'>Or enter the start year and end year to get records for that period</div>
+		<table>
+			<tr>
+				<td> Starting date</td>
+				<td><center><input type='date' name='start_year' value='{{start_year}}'></center></td>
+			</tr>
+			<tr>
+				<td> Ending date</td>
+				<td><center><input type='date' name='end_year' value='{{end_year}}'></center></td>
+			</tr>
+			
+		</table>
+		<br>
+		<input type='submit' value='Get records'>
+	<br><br>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Weekly Job timetable</title>
+	<style type="text/css">
+
+		.DayOfTheWeek {
+
+			font-size: 26px;
+			padding-bottom: 5px;
+			font-family: Arial;
+			color: blue;
+			font-weight: bolder;
+
+		}
+
+		h1 {
+			text-align: center;
+			font-family: Arial;
+			color: green;
+			padding-bottom: 20px;
+			padding-top: 30px;
+		}
+
+		table {
+			font-family: Arial;
+			padding-left: 100px;
+			font-size: 20px;
+		}
+
+		td {
+			font-size: bolder;
+			font-weight: 19px;
+		}
+
+		input[type='text'] {
+			font-family: Arial;
+			width: 400px;
+			height: 30px;
+			font-size: 19px;
+		}
+
+		input[type='time'] {
+			font-family: Arial;
+			width: 400px;
+			height: 30px;
+			font-size: 19px;
+
+		}
+
+		input[type='submit'] {
+			font-family: Arial;
+			height:50px;
+			font-size: 17px;
+			font-weight: bolder;
+			width: 100px;
+			margin-left: 500px;
+			
+
+
+		}
+
+		input[type='number'] {
+			font-family: Arial;
+			width: 400px;
+			height: 30px;
+			font-size: 19px;
+
+		}
+
+		input[type='date'] {
+			font-family: Arial;
+			width: 400px;
+			height: 30px;
+			font-size: 19px;
+
+		}
+
+		select {
+			font-family: Arial;
+			width: 400px;
+			height: 30px;
+			font-size: 19px;
+		}
+
+		.error {
+			color: red;
+			font-size: 19px;
+			font-family: Arial;
+		}
+
+		.msg {
+			color: blue;
+			font-size: 21px;
+			font-family: Arial;
+			padding-left: 100px;
+		}
+
+
+	    .login {
+	    	position: absolute;
+	    	top: 10px;
+	    	right: 10px;
+	    	font-family: arial;
+	    	text-decoration: none;
+	    }
+
+	    a {
+    		text-decoration: none;
+    	
+    	}
+
+    	.last_login {
+    		position: absolute;
+    		top:400;
+    		left:100;
+    	}
+
+	</style>
+</head>
+
+<body>
+		<h1> Weekly job timesheet</h1>
+
+		<div class='login'>
+			{% if user %}
+			   <div class='login-text'>
+			      Welcome you are logged in as {{user}}<span class='name'><a href="/logout"> (logout) </a></span> |
+			      <a href="/records"> My job timetable </a> |  <a href="/faq">FAQ</a>
+			   </div>
+			   
+			{%else%}
+				<a href="/login">login</a> | <a href="signUp"></a> | <a href="/homepage">home page </a>
+			{%endif%}
+		</div>
+
+		<form method='post'>
+				<table>
+
+					
+
+					<tr>
+						<td>Week Commencing (Mon) </td>
+						<td><input type='date' name='date' value='{{date}}' min='2015-12-11'></td>
+						<td class="error">{{date_error}}</td>
+					</tr>
+
+					<tr>
+						<td>Day of the week working</td>
+						<td>
+							<input type='text' name='dayOfWeek' value='{{dayOfWeek}}'>
+						</td>
+						<td class="error">{{error}}</td>
+						
+					</tr>
+					<tr>
+						<td>Job Title </td>
+						<td><input type='text' name='title' value='{{title}}'></td>
+					</tr>
+					<tr>
+						<td>Job Description</td>
+						<td><input type='text' name='description' value='{{description}}'></td>
+					</tr>
+					<tr>
+						<td>Job Location </td>
+						<td><input type='text' name='Location' value='{{Location}}'></td>
+					</tr>
+					<tr>
+						<td>Start Time </td>
+						<td><input type='time' name='startTime' value='{{startTime}}'></td>
+						<td class="error">{{startTimeError}}</td>
+					</tr>
+					<tr>
+						<td>Finish time </td>
+						<td><input type='time' name='finishTime' value='{{finishTime}}'></td>
+						<td class="error">{{finishTimeError}}</td>
+					</tr>
+					<tr> 
+						<td>Hourly rate </td>
+						<td><input type='number' name='hourRate' value='{{hourRate}}' min='0' step='any'></td>
+					</tr>
+					<tr> 
+						<td>Additional weekly payment </td>
+						<td><input type='number' name='addPayment' value='{{addPayment}}' min='0' step='any' value='0'></td>
+					</tr>
+					
+						
+				</table>
+					<br>
+					<div class="msg">{{msg}}</div>
+					<br>
+
+				
+				<input type='submit' value='Save'>
+
+		</form>
+
+		
+
+</body>
+
+</html>
